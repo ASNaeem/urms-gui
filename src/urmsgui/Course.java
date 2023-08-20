@@ -9,7 +9,7 @@ public class Course implements GradeCalculation {
     private double creditHour;
     private ArrayList<Course> prerequisites;
     private String content;
-    private String departments;
+    private Department department;
     private double midMarks;
     private double finalMarks;
     private double otherMarks;
@@ -17,14 +17,14 @@ public class Course implements GradeCalculation {
     private String grade;
     private double cg;
 
-    public Course(String title, String code, double creditHour, ArrayList<Course> prerequisites, String content, String departments) {
+    public Course(String title, String code, double creditHour, ArrayList<Course> prerequisites, Department department, String content) {
 
         this.title = title;
         this.code = code;
         this.creditHour = creditHour;
         this.prerequisites = prerequisites;
         this.content = content;
-        this.departments = departments;
+        this.department = department;
         midMarks = 0.0;
         finalMarks = 0.0;
         otherMarks = 0.0;
@@ -34,13 +34,13 @@ public class Course implements GradeCalculation {
 
     }
 
-    public Course(String title, String code, double creditHour, String content, String departments) {
+    public Course(String title, String code, double creditHour, Department department, String content) {
 
         this.title = title;
         this.code = code;
         this.creditHour = creditHour;
         this.content = content;
-        this.departments = departments;
+        this.department = department;
         totalMarks = 0.0;
         grade = "F";
         cg = 0.0;
@@ -167,12 +167,12 @@ public class Course implements GradeCalculation {
         return grade;
     }
 
-    public String getDepartments() {
-        return departments;
+    public Department getDepartments() {
+        return department;
     }
 
-    public void setDepartments(String departments) {
-        this.departments = departments;
+    public void setDepartments(Department departments) {
+        this.department = departments;
     }
 
     public double getMidMarks() {

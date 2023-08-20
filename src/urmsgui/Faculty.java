@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package urmsgui;
 
 /**
@@ -9,16 +5,15 @@ package urmsgui;
  * @author Student
  */
 public class Faculty extends Person {
-    
+
     private String phone;
     private String email;
 
-    public Faculty(String phone, String email, String name, String dept) {
-        super(name, dept);
+    public Faculty(String name, Department dept, String phone, String email) {
+        super(name, dept, "ulabfaculty123");
         this.phone = phone;
         this.email = email;
     }
-    
 
     public String getPhone() {
         return phone;
@@ -35,6 +30,10 @@ public class Faculty extends Person {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+    @Override
+    public void resetPassword() {
+        super.setPassword("ulabfaculty123");
+    }
+
 }

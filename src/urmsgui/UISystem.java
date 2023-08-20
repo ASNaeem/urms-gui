@@ -35,7 +35,7 @@ public final class UISystem extends javax.swing.JFrame {
     public UISystem() {
 
         initComponents();
-        setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+        //  setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
         switchPanel(panelHome);
     }
 
@@ -101,10 +101,10 @@ public final class UISystem extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         panelResult1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tableResults = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        tFieldStudentID = new javax.swing.JTextField();
+        buttonCheckResult = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -175,8 +175,9 @@ public final class UISystem extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("University Resource Management System");
         setName("mainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1024, 800));
         setResizable(false);
+
+        panelBanner.setPreferredSize(new java.awt.Dimension(1024, 215));
 
         labelBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rss/ULAB-logo.png"))); // NOI18N
 
@@ -202,7 +203,10 @@ public final class UISystem extends javax.swing.JFrame {
         jSeparator1.setOpaque(true);
 
         layeredPane.setEnabled(false);
+        layeredPane.setPreferredSize(new java.awt.Dimension(976, 485));
         layeredPane.setLayout(new java.awt.CardLayout());
+
+        panelHome.setPreferredSize(new java.awt.Dimension(1024, 485));
 
         buttonFaculty.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         buttonFaculty.setText("Faculty");
@@ -251,7 +255,7 @@ public final class UISystem extends javax.swing.JFrame {
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonFaculty, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(buttonStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -260,6 +264,7 @@ public final class UISystem extends javax.swing.JFrame {
 
         layeredPane.add(panelHome, "cardHome");
 
+        panelSLogin.setPreferredSize(new java.awt.Dimension(1024, 485));
         panelSLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonStudent2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -369,6 +374,7 @@ public final class UISystem extends javax.swing.JFrame {
 
         layeredPane.add(panelSLogin, "cardSLogin");
 
+        panelFLogin.setPreferredSize(new java.awt.Dimension(1024, 485));
         panelFLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -414,6 +420,10 @@ public final class UISystem extends javax.swing.JFrame {
         panelFLogin.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 125, 170, -1));
 
         layeredPane.add(panelFLogin, "cardFLogin");
+
+        tabbedPaneF.setPreferredSize(new java.awt.Dimension(1024, 485));
+
+        panelFHome.setPreferredSize(new java.awt.Dimension(1024, 454));
 
         jButton1.setText("Result Entry");
 
@@ -471,10 +481,12 @@ public final class UISystem extends javax.swing.JFrame {
                         .addComponent(jButton6)
                         .addGap(82, 82, 82)
                         .addComponent(jButton7)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         tabbedPaneF.addTab("Home", panelFHome);
+
+        panelAttendance.setPreferredSize(new java.awt.Dimension(1024, 454));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -492,17 +504,18 @@ public final class UISystem extends javax.swing.JFrame {
         panelAttendance.setLayout(panelAttendanceLayout);
         panelAttendanceLayout.setHorizontalGroup(
             panelAttendanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE)
         );
         panelAttendanceLayout.setVerticalGroup(
             panelAttendanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAttendanceLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         tabbedPaneF.addTab("Attendance", panelAttendance);
 
+        panelResultEntry.setPreferredSize(new java.awt.Dimension(1024, 454));
         panelResultEntry.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 panelResultEntryFocusGained(evt);
@@ -571,7 +584,7 @@ public final class UISystem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelResultEntryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultEntryLayout.createSequentialGroup()
-                        .addComponent(scrollPaneResultEntry, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
+                        .addComponent(scrollPaneResultEntry, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultEntryLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -592,15 +605,17 @@ public final class UISystem extends javax.swing.JFrame {
                 .addComponent(scrollPaneResultEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton15)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         tabbedPaneF.addTab("ResultEntry", panelResultEntry);
 
+        panelResult1.setPreferredSize(new java.awt.Dimension(1024, 454));
+
         jScrollPane2.setEnabled(false);
 
-        jTable2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tableResults.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tableResults.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -625,13 +640,18 @@ public final class UISystem extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setEnabled(false);
-        jScrollPane2.setViewportView(jTable2);
+        tableResults.setEnabled(false);
+        jScrollPane2.setViewportView(tableResults);
 
         jLabel18.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel18.setText("Student's ID:");
 
-        jButton8.setText("Check");
+        buttonCheckResult.setText("Check");
+        buttonCheckResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCheckResultActionPerformed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel20.setText("CGPA: ");
@@ -661,9 +681,9 @@ public final class UISystem extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tFieldStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8))
+                        .addComponent(buttonCheckResult))
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelResult1Layout.createSequentialGroup()
                         .addGap(309, 309, 309)
@@ -681,7 +701,7 @@ public final class UISystem extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labelNCC))))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 119, Short.MAX_VALUE))
+                .addGap(0, 128, Short.MAX_VALUE))
         );
         panelResult1Layout.setVerticalGroup(
             panelResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -689,8 +709,8 @@ public final class UISystem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8))
+                    .addComponent(tFieldStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCheckResult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -713,6 +733,8 @@ public final class UISystem extends javax.swing.JFrame {
         );
 
         tabbedPaneF.addTab("Result", panelResult1);
+
+        panelProfile.setPreferredSize(new java.awt.Dimension(1024, 454));
 
         jLabel14.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel14.setText("Student Profile");
@@ -805,7 +827,7 @@ public final class UISystem extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelProfileLayout.createSequentialGroup()
-                                .addComponent(labelProgram, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                .addComponent(labelProgram, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                                 .addGap(648, 648, 648))
                             .addGroup(panelProfileLayout.createSequentialGroup()
                                 .addGroup(panelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -869,6 +891,10 @@ public final class UISystem extends javax.swing.JFrame {
         tabbedPaneF.addTab("Profile", panelProfile);
 
         layeredPane.add(tabbedPaneF, "cardF");
+
+        tabbedPaneS.setPreferredSize(new java.awt.Dimension(1024, 485));
+
+        panelSHome.setPreferredSize(new java.awt.Dimension(1024, 454));
 
         jLabel9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel9.setText("E-mail: ");
@@ -967,14 +993,14 @@ public final class UISystem extends javax.swing.JFrame {
                     .addGroup(panelSHomeLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton12)))
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addContainerGap(547, Short.MAX_VALUE))
         );
         panelSHomeLayout.setVerticalGroup(
             panelSHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSHomeLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(jButton13)
                 .addGap(18, 18, 18)
                 .addComponent(jButton14)
@@ -988,6 +1014,8 @@ public final class UISystem extends javax.swing.JFrame {
         );
 
         tabbedPaneS.addTab("Home", panelSHome);
+
+        panelResult.setPreferredSize(new java.awt.Dimension(1024, 454));
 
         jScrollPane1.setEnabled(false);
 
@@ -1105,6 +1133,8 @@ public final class UISystem extends javax.swing.JFrame {
 
         tabbedPaneS.addTab("Result", panelResult);
 
+        panelProfile1.setPreferredSize(new java.awt.Dimension(1024, 454));
+
         jLabel37.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel37.setText("My Profile");
 
@@ -1193,7 +1223,7 @@ public final class UISystem extends javax.swing.JFrame {
                                 .addComponent(labelProgram1)
                                 .addGap(190, 190, 190)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 314, Short.MAX_VALUE))))))
+                                .addGap(0, 402, Short.MAX_VALUE))))))
         );
         panelProfile1Layout.setVerticalGroup(
             panelProfile1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1366,42 +1396,49 @@ public final class UISystem extends javax.swing.JFrame {
     }//GEN-LAST:event_tableResultEntryInputMethodTextChanged
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-        if (tableResultEntry.getSelectedRow() > -1) {
-            int rowIndex = tableResultEntry.getSelectedRow();
 
-            //fix here
-            for (var x : students) {
-                try {
-                    if (x.getId() == Integer.parseInt(model.getValueAt(rowIndex, 1).toString())) {
-                        for (var y : x.getCurrentTrimester().getCourses()) {
-                            if (y.getCode().equalsIgnoreCase(listCourses.getSelectedValue())) {
-                                try {
-                                    y.setMidMarks(Double.parseDouble(model.getValueAt(rowIndex, 2).toString()));
-                                    y.setFinalMarks(Double.parseDouble(model.getValueAt(rowIndex, 3).toString()));
-                                    y.setOtherMarks(Double.parseDouble(model.getValueAt(rowIndex, 4).toString()));
-
-                                } catch (NumberFormatException e) {
-                                    JOptionPane.showMessageDialog(tableResultEntry, "Please input only neumeric values!");
-                                }
-                            }
-                        }
-                    }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }
-        populateTable();
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void buttonCheckResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCheckResultActionPerformed
+
+//        if (tFieldStudentID != null) {
+//            modelResult = (DefaultTableModel) tableResults.getModel();
+//            int id = -1;
+//            try {
+//                id = Integer.parseInt(tFieldStudentID.getText());
+//                for (var x : students) {
+//                    if (x.getId() == id) {
+//                        for (var y : x.getCompletedCourses()) {
+//                            String batch = String.valueOf(y.getBatch());
+//                            String trimester = batch.substring(0, 2);
+//                            String season = batch.substring(2);
+//                            if (season.equals("1"))
+//                                season = "Spring";
+//                            else if (season.equals("2"))
+//                                season = "Summer";
+//                            else
+//                                season = "Fall";
+//                            trimester = season + " - " + trimester;
+//                            Object ob[] = {trimester, y.getCredits(), 6};
+//                        }
+//                    }
+//                }
+//            } catch (NumberFormatException e) {
+//                JOptionPane.showMessageDialog(panelResult, "Wrong ID format. Check and try again!");
+//            }
+//        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCheckResultActionPerformed
     static DefaultTableModel model;
+    static DefaultTableModel modelResult;
     static DefaultListModel listModel;
     static ArrayList<Student> students;
     static ArrayList<Course> courses;
+    static ArrayList<Faculty> faculties;
     static ArrayList<Department> departments;
 
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1412,6 +1449,7 @@ public final class UISystem extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -1424,14 +1462,19 @@ public final class UISystem extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(UISystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+
+        faculties = new ArrayList<>();
         students = new ArrayList<>();
         courses = new ArrayList<>();
-        students.add(new Student("Nemo", "CSE", "Bosila"));
-        students.add(new Student("Uzo", "CSE", "Bosila"));
-        students.add(new Student("Tee", "CSE", "Savar"));
-        courses.add(new Course("Introduction to Programming", "CSE1102", 1.0, "CSE", "Introduces the student to basic of computer programming"));
-        courses.add(new Course("Structured Programming", "CSE1201", 3.0, "CSE", "Introduces further in structed programming"));
-        courses.add(new Course("Object Oriented Programming", "CSE2102", 3.0, "CSE", "Object oriented concepts "));
+//        faculties.add(new Faculty("John", "CSE", "01823", "john@gmail.com"));
+//        faculties.add(new Faculty("Cena", "CSE", "078934", "cena@gmail.com"));
+//        faculties.add(new Faculty("Alex", "CSE", "09786", "alex@gmail.com"));
+//        students.add(new Student("Nemo", "CSE", "Bosila", faculties.get(0)));
+//        students.add(new Student("Uzo", "CSE", "Bosila", faculties.get(1)));
+//        students.add(new Student("Tee", "CSE", "Savar", faculties.get(2)));
+//        courses.add(new Course("Introduction to Programming", "CSE1102", 1.0, "CSE", "Introduces the student to basic of computer programming"));
+//        courses.add(new Course("Structured Programming", "CSE1201", 3.0, "CSE", "Introduces further in structed programming"));
+//        courses.add(new Course("Object Oriented Programming", "CSE2102", 3.0, "CSE", "Object oriented concepts "));
         Trimester trimester = new Trimester(223, courses);
         listModel = new DefaultListModel();
 
@@ -1452,6 +1495,7 @@ public final class UISystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCheckResult;
     private javax.swing.JButton buttonFLogin;
     private javax.swing.JButton buttonFaculty;
     private javax.swing.JButton buttonStudent;
@@ -1471,7 +1515,6 @@ public final class UISystem extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1523,11 +1566,9 @@ public final class UISystem extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelAddress1;
@@ -1565,8 +1606,10 @@ public final class UISystem extends javax.swing.JFrame {
     private javax.swing.JPanel panelSLogin;
     private javax.swing.JScrollPane scrollPaneCourseSelector;
     private javax.swing.JScrollPane scrollPaneResultEntry;
+    private javax.swing.JTextField tFieldStudentID;
     private javax.swing.JTabbedPane tabbedPaneF;
     private javax.swing.JTabbedPane tabbedPaneS;
     private javax.swing.JTable tableResultEntry;
+    private javax.swing.JTable tableResults;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Student extends Person{
+public class Student extends Person {
 
     public static int getCount() {
         return count;
@@ -13,8 +13,8 @@ public class Student extends Person{
     public static void setCount(int aCount) {
         count = aCount;
     }
-  
-    private int id;  
+
+    private String id;
     private double creditsAquired;
     private double cgpa;
     private double gpa;
@@ -24,45 +24,27 @@ public class Student extends Person{
     private final int batch;
     private static int count = 100;
     private final LocalDate date;
-    private String adress;
+    private String address;
 
-    public Student(String name, String dept, String address) {
-        super(name, dept);
+    public Student(String name, Department dept, String address, Faculty advisor) {
+        super(name, dept, "ulab123");
         date = LocalDate.now();
         count++;
-        this.adress = address;
-        this.name = name;
-        this.dept = dept;
+        this.address = address;
         batch = batchCalc();
-        id = Integer.parseInt(String.valueOf(batch) + deptCode(dept) + String.valueOf(count));
+        id = String.valueOf(batch) + deptCode(dept.getAcronym()) + String.valueOf(count);
         this.creditsAquired = 0;
         cgpa = 0.0;
         gpa = 0.0;
 
     }
 
-    public String getName() {
-        return getName();
-    }
-
-    public void setName(String name) {
-        this.setName(name);
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getDept() {
-        return getDept();
-    }
-
-    public void setDept(String dept) {
-        this.setDept(dept);
     }
 
     public double getCreditsAquired() {
@@ -114,12 +96,12 @@ public class Student extends Person{
         this.currentTrimester = currentTrimester;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
     ///----------class behaviours------------------//
 
@@ -147,7 +129,7 @@ public class Student extends Person{
             case "BNG":
                 code = "018";
             default:
-                System.out.println("Unexpected error occured!");
+                System.out.println("Unexpected error occured while assigning dept code to id!");
         }
         return code;
     }
@@ -167,6 +149,11 @@ public class Student extends Person{
     public void update() {
         if (!trimesters.contains(currentTrimester))
             Collections.addAll(trimesters, currentTrimester);
+    }
+
+    @Override
+    public void resetPassword() {
+        super.setPassword("ulab123");
     }
 
 }
